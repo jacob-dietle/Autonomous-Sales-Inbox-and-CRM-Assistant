@@ -1,4 +1,4 @@
-# Generative Email Assistant
+# Generative AI Email Assistant
 
 ## A proof of concept email batching and drafting assistant. 
 
@@ -31,30 +31,33 @@ I created this workflow as a proof of concept for an LLM-agent email assistant i
 `add_autodrafted_label`: This step adds the "autodrafted response" label to the generated or updated thread.
 
 There are three scenarios this workflow handles:
- • `thread_no_draft`: any thread with no drafts at the end of the thread. In this scenario, the workflow will prompt GPT-3.5 to generate a response using just the tone of voice set in the system prompt with no further context.
- • `thread_and_draft`: Any thread where the last message in thread is a draft. In this scenario, the workflow will extract the contents of the draft and provide it in the API call, effectively allowing the user to prompt GPT-3.5 from their inbox both on desktop and mobile.
- • `standalone_draft`: Any thread where there is only one message in the thread and it is labeled "DRAFT." In this scenario, the workflow will use the draft contents as user instructions for the API call and generate a new draft that contains the new content.
+
+- `thread_no_draft`:any thread with no drafts at the end of the thread. In this scenario, the workflow will prompt GPT-3.5 to generate a response using just the tone of voice set in the system prompt with no further context.
+
+ - `thread_and_draft`: Any thread where the last message in thread is a draft. In this scenario, the workflow will extract the contents of the draft and provide it in the API call, effectively allowing the user to prompt GPT-3.5 from their inbox both on desktop and mobile.
+
+ - `standalone_draft`: Any thread where there is only one message in the thread and it is labeled "DRAFT." In this scenario, the workflow will use the draft contents as user instructions for the API call and generate a new draft that contains the new content.
 
 The workflow can be triggered as many times as desired. All that needs to be done to retrigger is to remove the "Autodrafted Response" label and reapply the set trigger label.
 
 
 ## Setup
 
-1. Create a Pipedream account here -> https://pipedream.com/auth/signup
+1. ***Create a Pipedream account here*** -> https://pipedream.com/auth/signup
 
     You can create a free account that includes 100 free credits a day. In the context of this workflow, that is 100 email drafts a day. 
 
-2. Create your trigger labels in Gmail.  
+2. ***Create your trigger labels in Gmail.***
 
     You can name them whatever you want, as Gmail assigns user created labels a name like "Label_7116554950162008534" internally. 
 
-3. Create a workflow and select Gmail (Developer App) for your source and select "New Labeled Email" as the trigger.
+3. ***Create a workflow and select Gmail (Developer App) for your source and select "New Labeled Email" as the trigger.***
 
-4. Authorize Pipedream to access your Gmail Account via API and select your labels after it succesfully connects.
+4. ***Authorize Pipedream to access your Gmail Account via API and select your labels after it succesfully connects.***
     
     Pipedream has in depth instructions on how to authorize access to the Gmail API. Follow the on-screen instructions. After it is complete, it will allow you select the label (the name you assigned it). Select the label you want to serve as the workflow trigger, then create a test event (label an email in Gmail) to ensure it is working properly
 
-5. Create code blocks, paste in and configure each block step by step. 
+5. ***Create code blocks, paste in and configure each block step by step.***
 
     After you've ensured the trigger is working, begin creating python code blocks pasting in the code in order. You should test each code block before adding the next one to ensure the next block has data to use. 
 
@@ -81,9 +84,9 @@ The workflow can be triggered as many times as desired. All that needs to be don
      Please note, if you change the name of the blocks, you will need to reconfigure the export paths in each step to match the renamed block. 
 
 
-6. Deploy and test using your trigger labels. 
+6. ***Deploy and test using your trigger labels.***
     
-    Deploy the workflow. Test to ensure it works, Pipedream is good about telling you where something goes wrong but I've also included tracebacks in both the parse_and_filter_new_email and message_draft_logic blocks for easier debugging if something goes wrong. 
+    Deploy the workflow. Test to ensure it works, Pipedream is great about telling you where something goes wrong but I've also included traceback in both the parse_and_filter_new_email and message_draft_logic blocks for easier debugging if something goes wrong. 
     
     Select any email thread or standalone draft in your desktop or mobile gmail and label it your trigger label. This will trigger the workflow. Monitor the workflow execution, and once you see the little green check mark you'll know you've got an email drafting assitant inside your gmail :) 
 
