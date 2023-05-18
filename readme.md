@@ -6,6 +6,10 @@ This is a Pipedream workflow that integrates GPT-3.5 (or GPT-4) with Gmail to au
 
 I created this workflow as a proof of concept for an LLM-agent email assistant idea I've been scoping out. My goal was to both build something immediately useful, and develop a better understanding of the Gmail API and email infrastructure in general for future use. Working on this project was a lot of fun (and I learned a lot about the idiosyncrasies of the Gmail API). Please feel free to call out any bugs you experience using it or suggest any improvements you'd like to see. 
 
+***video demo***: https://www.loom.com/share/7277cdd9366f49479917e5e81e35e60e
+
+If you're interested in working with me on this project or learning more about what else I'm working on feel free to reach out at jacob@jdietle.me
+
 
 ## Features:
 
