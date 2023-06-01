@@ -1,5 +1,9 @@
 # Generative AI Email Assistant
 
+## Update: Pipedream has added workflow sharing as of 6/1. Now you can just copy the workflow directly into your account. Big props to the Pipedream team for adding this feature. 
+
+You can copy this workflow directly using this link: https://pipedream.com/new?h=tch_wjPf72
+
 ## A proof of concept email batching and drafting assistant. 
 
 This is a Pipedream workflow that integrates GPT-3.5 (or GPT-4) with Gmail to automatically generate email drafts based on the context of email threads and user instructions all from the gmail interface. This workflow ingests and cleans full threads and treats any drafts as user instructions to the LLM.  The workflow is triggered by applying a specific label to an email thread, and it generates a context-rich draft using OpenAI's GPT-3.5. The generated draft is then added to the email thread, and the workflow is marked as complete by applying an "Autodrafted Response" label (or any label you desire really).
