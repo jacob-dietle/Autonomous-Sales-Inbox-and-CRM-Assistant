@@ -38,7 +38,7 @@ If you are self-deploying and setting up this workflow, this does require some a
 
 **Step by Step Setup:**
 
-1. **Clone Workflow to Pipedream using this [link](https://pipedream.com/new?h=tch_5ofXeg?via=digital-leverage).**
+1. **Clone Workflow to Pipedream using this [link](https://pipedream.com/new?h=tch_5ofXeg&via=digital-leverage).**
 
 
 2. **Setup GCP Secrets according to this Pipedream [guide](https://pipedream.com/apps/gmail-custom-oauth).**
