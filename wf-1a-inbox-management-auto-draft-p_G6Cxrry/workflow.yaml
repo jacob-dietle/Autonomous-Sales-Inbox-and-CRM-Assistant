@@ -1,0 +1,99 @@
+schema: workflow/2022.04
+name: 'WF 1A: Inbox Management & Auto-draft'
+settings:
+  auto_retry: true
+  error_notification: true
+  lambda_memory: 1200
+  lambda_timeout: 90
+triggers:
+- id: dc_WbuJmmq
+steps:
+- namespace: workflow_config
+  runtime: python3.12
+  uses: "./workflow_config/entry.py"
+- namespace: parse_thread
+  runtime: python3.12
+  uses: "./parse_thread/entry.py"
+  props:
+    __configurableProps:
+    - app: python
+      name: python
+      type: app
+      authType: 
+      appId: app_m9zhdv
+    - app: gmail_custom_oauth
+      name: gmail_custom_oauth
+      type: app
+      authType: oauth
+      appId: app_13GhvW
+    gmail_custom_oauth:
+      authProvisionId: apn_x7h5QBv
+- namespace: semantic_routers
+  runtime: python3.12
+  uses: "./semantic_routers/entry.py"
+  props:
+    __configurableProps:
+    - app: openai
+      name: openai
+      type: app
+      authType: keys
+      appId: app_mWnhBo
+    - app: gmail_custom_oauth
+      name: gmail_custom_oauth
+      type: app
+      authType: oauth
+      appId: app_13GhvW
+    openai:
+      authProvisionId: apn_V1hpAPQ
+    gmail_custom_oauth:
+      authProvisionId: apn_x7h5QBv
+- namespace: reply_drafter_and_assembler
+  runtime: python3.12
+  uses: "./reply_drafter_and_assembler/entry.py"
+  props:
+    __configurableProps:
+    - app: openai
+      name: openai
+      type: app
+      authType: keys
+      appId: app_mWnhBo
+    openai:
+      authProvisionId: apn_V1hpAPQ
+- namespace: sending_manager
+  runtime: python3.12
+  uses: "./sending_manager/entry.py"
+  props:
+    __configurableProps:
+    - app: gmail_custom_oauth
+      name: gmail_custom_oauth
+      type: app
+      authType: oauth
+      appId: app_13GhvW
+    gmail_custom_oauth:
+      authProvisionId: apn_x7h5QBv
+- namespace: hubspot_crm_update
+  runtime: python3.12
+  uses: "./hubspot_crm_update/entry.py"
+  props:
+    __configurableProps:
+    - app: hubspot_developer_app
+      name: hubspot_developer_app
+      type: app
+      authType: oauth
+      appId: app_mjEhNl
+    hubspot_developer_app:
+      authProvisionId: apn_7rhWGbZ
+- namespace: label_setup_script___disable_after_deployment
+  disabled: true
+  runtime: python3.12
+  uses: "./label_setup_script___disable_after_deployment/entry.py"
+  props:
+    __configurableProps:
+    - app: gmail_custom_oauth
+      name: gmail_custom_oauth
+      type: app
+      authType: oauth
+      appId: app_13GhvW
+    gmail_custom_oauth:
+      authProvisionId: apn_x7h5QBv
+
