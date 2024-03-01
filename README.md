@@ -75,7 +75,7 @@ If you are self-deploying and setting up this workflow, this does require some a
 
 This app is ***source-available for noncommercial use***. I previously open-sourced the proof of concept of this project (check out the legacy branch) and am considering alternative licensing options.
 
-If you are interested in a commercial license, I'd love to hear from you, please reach out to me [here](https://share.hsforms.com/13bZdvr5dTECvbTo8a_MSnwr0ab2). To be transparent, I actively testing and exploring pricing models to find what works for me and my (assumed) target audiences.
+If you are interested in a commercial license, I'd love to hear from you, please reach out to me [here](https://ihb0ndabs87.typeform.com/to/Eo8FHOYh#comapany_name=xxxxx). To be transparent, I actively testing and exploring pricing models to find what works for me and my (assumed) target audiences.
 
 I am currently offering one time license purchase for self setup and hosting; I also offer managed deployments as a service. This is subject to change as I test and validate assumptions.
 
